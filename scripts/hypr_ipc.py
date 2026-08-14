@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """
 hypr_ipc.py
 Capa de compatibilidad con hyprctl para Hyprland >= 0.55 (config Lua).
