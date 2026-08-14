@@ -74,7 +74,7 @@ Place all scripts (.py and .sh) inside ~/scripts/
    end)
    ```
 **Configuration file**
-A configuration file will be created within "~/.config/infinite-canvas/config.json" when 'infinite_desktop_core.py' has started.
+A configuration file will be created within **"~/.config/infinite-canvas/config.json"** when 'infinite_desktop_core.py' has started.
 
 ### Configuration options:
 
