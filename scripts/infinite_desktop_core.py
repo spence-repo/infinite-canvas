@@ -43,7 +43,7 @@ super_pressed=False; alt_pressed=False; ctrl_pressed=False; btn_left=False; btn_
 
 # Canvas Variables.
 config = load_config()
-canvas = Canvas(workspace=config["workspace"], monitor="DP-3")
+canvas = Canvas(workspace=config["workspace"], monitor=config["monitor"])
 INFINITE_WORKSPACE = config["workspace"]
 ZOOM_ENABLED = config["zoom"]["enabled"]
 ZOOM_BASE_FACTOR = config["zoom"]["base_factor"]
