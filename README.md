@@ -51,6 +51,12 @@ Place all scripts (.py and .sh) inside ~/scripts/
   ```bash
   chmod +x ~/scripts/infinite-desktop.sh ~/scripts/floating_tile_toggle.py ~/scripts/move_window_tiled.py ~/scripts/navigate_windows.py ~/scripts/resize_window.py
   ```
+4. **Set monitor**
+   Infinite Canvas is monitor-specific and **MUST** be configured within the config file (see below). Failing to do so will result in error.
+   To find correct monitor name, run:
+   ```bash
+   hyrpctl monitors
+   ```
 
 ## Configuration
 **Auto-start**
@@ -66,6 +72,8 @@ A configuration file will be created within "~/.config/infinite-canvas/config.js
 ### Configuration options:
 
 * **workspace** - By default, this is set to `null`, which applies Infinite Canvas to **all workspaces**. To make it workspace-specific, set the appropriate workspace number.
+
+* ***monitor** - By default, this is set to 'null' and **MUST** be configured or will result in error when running the script.
 
 * **pan.speed** - Controls how much the Canvas moves in response to mouse movement while panning. `1.0` is the default.
 
