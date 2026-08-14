@@ -67,10 +67,10 @@ Configuration options:
 - workspace - By default is set to 'null', which applies to ALL workspaces. To be workspace specific, set the appropriate workspace number.
 - monitor - Set the monitor that canvas will work on (recommended). 'hyprctl monitors' command can be used to find the name of your monitor.
 - zoom - Can be set to enabled/disabled.
-  zoom base-factor - Can be set to enabled/disabled. Sets the zoom multiplier for each wheel step.
-  zoom acceleration - Can be set to enabled/disabled. Makes larger/faster scroll movements produce larger zoom steps via strength value.
-  zoom momentum - Can be set to enabled/disabled. Stops zoom from stopping immediately after scroll wheel movements ceases depending on 'strength' value.
-  zoom momentum decay - How quickly momentum fades.
+- zoom base-factor - Can be set to enabled/disabled. Sets the zoom multiplier for each wheel step.
+- zoom acceleration - Can be set to enabled/disabled. Makes larger/faster scroll movements produce larger zoom steps via strength value.
+- zoom momentum - Can be set to enabled/disabled. Stops zoom from stopping immediately after scroll wheel movements ceases depending on 'strength' value.
+- zoom momentum decay - How quickly momentum fades.
 - pan speed - Controls how much Canvas movement is produced from mouse movement.
   
 ## How to use
