@@ -53,6 +53,13 @@ Place all scripts (.py and .sh) inside ~/scripts/
   ```
 4. **Set monitor:**
    Infinite Canvas is monitor-specific and **MUST** be configured within the config file (see below). Failing to do so will result in error.
+   
+   ```json
+   {
+    "workspace": null,
+    "monitor": null,
+   }
+   ```
    To find the correct monitor name, run:
    ```bash
    hyrpctl monitors
