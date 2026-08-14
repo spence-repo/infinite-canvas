@@ -1,28 +1,18 @@
-# hyprland-infinite-desktop-v2
-A powerful script to transform your Hyprland workspace into an "infinite" canvas. This tool allows you to pan all floating windows simultaneously using your mouse and navigate between them with keyboard shortcuts, creating a dynamic and boundless desktop experience.
+# infinite-canvas
+This is a fork of 'hyprland-infinitie-desktop-v2' by sarodscommits, redesigned around a brand-new persistent world-coordinate and camera system. Infinite canvas introduces additional functionality that includes; cursor-centered zoom, configurable zoom/pan behavior, persistent tracking of window states, and a Canvas reset.
 <img width="1920" height="1080" alt="20260509_18h26m44s_grim" src="https://github.com/user-attachments/assets/464fa371-7cc4-4fd5-a06c-55d7b51ba59d" />
 
+**What's New?** 
+- Infinite canvas stores windows positions and sizes within its virtual coordinate system that are accurately translated from Hyprland coordinates, and translated back upon window transformations to maintain consistency.
+- A virtual camera is now used to display the correct position of the canvas to the screen.
+- A new configurable zoom feature that scales the Canvas around the cursor position, making windows appear larger/smaller while maintaining their correct positions.
+- Optional configuration options such as disabling/enabling of features and changes to their behavior.
+- The option to set Infinite canvas to all workspaces, or to be workspace-specific.
+- Canvas reset bind that resets camera position and zoom level.
 
-## 🚀 Features
-
--Infinite Panning: Move the entire "canvas" of floating windows by holding a modifier combination and moving your mouse.
-
--Smart Navigation: Cycle focus between floating windows
-
-## New features
-
--Now works in LUA (Hyprland 0.55+).
-
--Toggle tiling floating/layout.
-
--Rezize and move windows without mouse.
-
--Better navigation.
-
-
-## 🛠️ Requirements
-
+## Requirements
 You need Python 3, jq, bash, python-evdev installed on your system.
+
 ### Installation by Distribution:
 * **Arch Linux:**
   ```bash
@@ -36,7 +26,8 @@ You need Python 3, jq, bash, python-evdev installed on your system.
   ```bash
   sudo apt install python python-evdev bash jq
     ```
-## 🔑 Permissions
+  
+## Permissions
 1.Add your user to the group
 ```bash
 sudo usermod -aG input $USER
@@ -46,13 +37,13 @@ sudo usermod -aG input $USER
 sudo reboot
   ```
 
-## 📥 Installation
-
+## Installation
 1. **Create the directory:**
    All scripts must be stored in a dedicated folder in your home directory:
    ```bash
    mkdir -p ~/scripts
    ```
+   
 2. **Download the scripts:**
 Place all scripts (.py and .sh) inside ~/scripts/
 
@@ -60,69 +51,36 @@ Place all scripts (.py and .sh) inside ~/scripts/
   ```bash
   chmod +x ~/scripts/infinite-desktop.sh ~/scripts/floating_tile_toggle.py ~/scripts/move_window_tiled.py ~/scripts/navigate_windows.py ~/scripts/resize_window.py
   ```
-## ⚙️ Configuration
-Add the following lines to your ~/.config/hypr/hyprland.lua:
 
-1. **Auto-start**
+## Configuration
+**Auto-start**
+   Add the following lines to your ~/.config/hypr/hyprland.lua:
    ```bash
     hl.on("hyprland.start", function()
         hl.exec_cmd("python3 ~/scripts/infinite_desktop_core.py 1.6 > /tmp/infinite-desktop.log 2>&1")
    end)
    ```
-2. **Keybindings**
-   Add these binds to enable keyboard navigation between your floating windows:
-   
-   ***(if you already have a bind that uses one of the required keys or for workspaces, replace them)***
-   ```bash
+**Configuration file**
+A configuration file will be created within "~/.config/infinite-canvas/config.json" when 'infinite_desktop_core.py' has started.
 
-
-   local mainMod = "SUPER"
-
-   -- Workspaces - cambiar
-   hl.bind(mainMod .. " + Z", hl.dsp.focus({ workspace = "-1" }))
-   hl.bind(mainMod .. " + X", hl.dsp.focus({ workspace = "+1" }))
-   hl.bind(mainMod .. " + SHIFT + Z", hl.dsp.window.move({ workspace = "-1" }))
-   hl.bind(mainMod .. " + SHIFT + X", hl.dsp.window.move({ workspace = "+1" }))
-
-   -- Infinite desktop / mover y redimensionar ventanas
-   hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("python3 ~/scripts/floating_tile_toggle.py"))
-
-   hl.bind(mainMod .. " + left",  hl.dsp.exec_cmd("python3 ~/scripts/navigate_windows.py left"))
-   hl.bind(mainMod .. " + right", hl.dsp.exec_cmd("python3 ~/scripts/navigate_windows.py right"))
-   hl.bind(mainMod .. " + up",    hl.dsp.exec_cmd("python3 ~/scripts/navigate_windows.py up"))
-   hl.bind(mainMod .. " + down",  hl.dsp.exec_cmd("python3 ~/scripts/navigate_windows.py down"))
-
-   hl.bind(mainMod .. " + ALT + left",  hl.dsp.exec_cmd("python3 ~/scripts/move_window_tiled.py left"))
-   hl.bind(mainMod .. " + ALT + right", hl.dsp.exec_cmd("python3 ~/scripts/move_window_tiled.py right"))
-   hl.bind(mainMod .. " + ALT + up",    hl.dsp.exec_cmd("python3 ~/scripts/move_window_tiled.py up"))
-   hl.bind(mainMod .. " + ALT + down",  hl.dsp.exec_cmd("python3 ~/scripts/move_window_tiled.py down"))
-
-   hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.exec_cmd("python3 ~/scripts/move_window.py left"),  { repeating = true })
-   hl.bind(mainMod .. " + SHIFT + right", hl.dsp.exec_cmd("python3 ~/scripts/move_window.py right"), { repeating = true })
-   hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.exec_cmd("python3 ~/scripts/move_window.py up"),    { repeating = true })
-   hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.exec_cmd("python3 ~/scripts/move_window.py down"),  { repeating = true })
-
-   hl.bind(mainMod .. " + CTRL + left",  hl.dsp.exec_cmd("python3 ~/scripts/resize_window.py left"),  {    repeating = true })
-   hl.bind(mainMod .. " + CTRL + right", hl.dsp.exec_cmd("python3 ~/scripts/resize_window.py right"), { repeating = true })
-   hl.bind(mainMod .. " + CTRL + up",    hl.dsp.exec_cmd("python3 ~/scripts/resize_window.py up"),    { repeating = true })
-   hl.bind(mainMod .. " + CTRL + down",  hl.dsp.exec_cmd("python3 ~/scripts/resize_window.py down"),  { repeating = true })
-   ```
-
-## 🖱️ How to use
-
- **Workspaces:** Press ***SUPER + Z or X*** to change of workspaces.
+Configuration options:
+- workspace - By default is set to 'null', which applies to ALL workspaces. To be workspace specific, set the appropriate workspace number.
+- monitor - Set the monitor that canvas will work on (recommended). 'hyprctl monitors' command can be used to find the name of your monitor.
+- zoom - Can be set to enabled/disabled.
+  zoom base-factor - Can be set to enabled/disabled. Sets the zoom multiplier for each wheel step.
+  zoom acceleration - Can be set to enabled/disabled. Makes larger/faster scroll movements produce larger zoom steps via strength value.
+  zoom momentum - Can be set to enabled/disabled. Stops zoom from stopping immediately after scroll wheel movements ceases depending on 'strength' value.
+  zoom momentum decay - How quickly momentum fades.
+- pan speed - Controls how much Canvas movement is produced from mouse movement.
+  
+## How to use
  
  **Panning:** Hold ***SUPER + ALT*** and move your mouse to slide the entire desktop.
- 
- **Navigation:** Press ***SUPER + Arrow Keys*** to center and focus the next floating/tiled window.
- 
- **Toggle floating/layout:** Press ***SUPER + D*** to toggle all windows floating/mosaic.
 
- **Toggle floating/layout:** Press ***SUPER + V*** ti toggle one window flotating/mosaic.
+ **Zoom** Press/hold **SUPER + SCROLL WHEEL UP/DOWN** to zoom all windows in/out
 
- **Rezize window:** Press/hold ***CTRL + SUPER + Arrow Keys*** to rezize windows.
+ **Reset** Press **SUPER + BACKSPACE** to reset camera position and zoom level.
 
- **Move windows:** Press/hold ***SHIFT + SUPER + Arrow Keys*** to move windows on floating.
-
- **Move tiled windows:** Press ***SUPER + ALT + Arrow Keys*** yo move tiled windows.
+ ## Disclaimer
+ I am by no means an experienced programmer. This was a fun learning project of mine as part of my ricing journey with Hyprland.
 
