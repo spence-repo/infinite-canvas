@@ -28,11 +28,11 @@ You need Python 3, jq, bash, python-evdev installed on your system.
     ```
   
 ## Permissions
-1.Add your user to the group
+1. Add your user to the group
 ```bash
 sudo usermod -aG input $USER
   ```
-2.Restart your session
+2. Restart your session
 ```bash
 sudo reboot
   ```
