@@ -1,6 +1,6 @@
 # infinite-canvas
 This is a fork of 'hyprland-infinitie-desktop-v2' by sarodscommits, redesigned around a brand-new persistent world-coordinate and camera system. Infinite canvas introduces additional functionality that includes; cursor-centered zoom, configurable zoom/pan behavior, persistent tracking of window states, and a Canvas reset.
-<img width="1920" height="1080" alt="20260509_18h26m44s_grim" src="https://github.com/user-attachments/assets/464fa371-7cc4-4fd5-a06c-55d7b51ba59d" />
+<video src="./assets/demo.mp4" controls autoplay loop muted width="1920"></video>
 
 **What's New?** 
 - Infinite canvas stores windows positions and sizes within its virtual coordinate system that are accurately translated from Hyprland coordinates, and translated back upon window transformations to maintain consistency.
