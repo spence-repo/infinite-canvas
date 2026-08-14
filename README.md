@@ -48,7 +48,7 @@ sudo reboot
 Place all scripts (.py and .sh) inside ~/scripts/
 
 3. **Grant execution permissions:**
-   ```bash
+  ```bash
   chmod +x ~/scripts/infinite-desktop.sh ~/scripts/floating_tile_toggle.py ~/scripts/move_window_tiled.py ~/scripts/navigate_windows.py ~/scripts/resize_window.py
   ```
 
