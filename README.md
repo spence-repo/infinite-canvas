@@ -51,9 +51,9 @@ Place all scripts (.py and .sh) inside ~/scripts/
   ```bash
   chmod +x ~/scripts/infinite-desktop.sh ~/scripts/floating_tile_toggle.py ~/scripts/move_window_tiled.py ~/scripts/navigate_windows.py ~/scripts/resize_window.py
   ```
-4. **Set monitor**
+4. **Set monitor:**
    Infinite Canvas is monitor-specific and **MUST** be configured within the config file (see below). Failing to do so will result in error.
-   To find correct monitor name, run:
+   To find the correct monitor name, run:
    ```bash
    hyrpctl monitors
    ```
