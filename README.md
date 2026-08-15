@@ -1,7 +1,7 @@
 
 
 # infinite-canvas for Hyprland v0.56
-This is a fork of 'hyprland-infinitie-desktop-v2' by sarodscommits, redesigned around a brand-new persistent world-coordinate and camera system. Infinite canvas introduces additional functionality that includes; cursor-centered zoom, configurable zoom/pan behavior, persistent tracking of window states.
+This is a fork of 'hyprland-infinitie-desktop-v2' by sarodscommits, redesigned around a brand-new persistent world-coordinate and camera system. Infinite canvas introduces additional functionality that includes; cursor-centered zoom, configurable zoom/pan behavior, persistent tracking of window states, and a canvas reset.
 
 https://github.com/user-attachments/assets/158917e4-6aa7-4ab7-806b-1a34b218dd14
 
@@ -14,6 +14,7 @@ https://github.com/user-attachments/assets/158917e4-6aa7-4ab7-806b-1a34b218dd14
 - A new configurable zoom feature that scales the Canvas around the cursor position, making windows appear larger/smaller while maintaining their correct positions.
 - Optional configuration options such as disabling/enabling of features and changes to their behavior.
 - The option to set Infinite canvas to all workspaces, or to be workspace-specific.
+- Canvas reset bind that resets camera position and zoom level.
 
 ## Requirements
 You need Python 3, jq, bash, python-evdev installed on your system.
@@ -108,6 +109,8 @@ A configuration file will be created within **"~/.config/infinite-canvas/config.
  **Panning:** Hold ***SUPER + ALT*** and move your mouse to slide the entire desktop.
 
  **Zoom** Press/hold **SUPER + SCROLL WHEEL UP/DOWN** to zoom all windows in/out
+
+  **Reset** Press **SUPER + BACKSPACE** to reset camera position and zoom level.
 
  ## Disclaimer
  I am by no means an experienced programmer. This was a fun learning project of mine as part of my ricing journey with Hyprland.
