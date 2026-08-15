@@ -1072,6 +1072,7 @@ def get_infinite_desktop_windows():
 
 # Main loop for desktop dragging
 zoom_momentum = 0.0
+
 while True:
     time.sleep(0.008)
 
@@ -1095,7 +1096,7 @@ while True:
 
     if reset:
         zoom_momentum = 0.0
-#        canvas.reset()
+        canvas.reset()
         continue
 
     if canvas_zoom and ZOOM_ENABLED and wheel != 0:
@@ -1127,20 +1128,22 @@ while True:
                     * ZOOM_MOMENTUM_STRENGTH
             )
 
+        cursor_x, cursor_y = get_cursor_position()
+
         # Applies wheel input.
         if wheel > 0:
 
             canvas.zoom(zoom_factor,
-                        mouse_x,
-                        mouse_y,
+                        cursor_x,
+                        cursor_y,
             )
 
         else:
 
             canvas.zoom(
                     1 / zoom_factor,
-                    mouse_x,
-                    mouse_y
+                    cursor_x,
+                    cursor_y
             )
 
     # Apply stored momentum.
@@ -1155,15 +1158,15 @@ while True:
 
             canvas.zoom(
                     momentum_factor,
-                    mouse_x,
-                    mouse_y,
+                    cursor_x,
+                    cursor_y,
             )
 
         else:
             canvas.zoom(
                     1 / momentum_factor,
-                    mouse_x,
-                    mouse_y,
+                    cursor_x,
+                    cursor_y,
             )
 
     # Decay.
