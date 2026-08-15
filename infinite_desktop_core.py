@@ -1072,7 +1072,7 @@ def get_infinite_desktop_windows():
 
 # Main loop for desktop dragging
 zoom_momentum = 0.0
-cursor_x, cursor_y = get_cursor_position()
+
 while True:
     time.sleep(0.008)
 
@@ -1127,6 +1127,8 @@ while True:
                     * wheel_amount
                     * ZOOM_MOMENTUM_STRENGTH
             )
+
+        cursor_x, cursor_y = get_cursor_position()
 
         # Applies wheel input.
         if wheel > 0:
