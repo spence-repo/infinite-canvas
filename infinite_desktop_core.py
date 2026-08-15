@@ -1096,7 +1096,7 @@ while True:
 
     if reset:
         zoom_momentum = 0.0
-#        canvas.reset()
+        canvas.reset()
         continue
 
     if canvas_zoom and ZOOM_ENABLED and wheel != 0:
