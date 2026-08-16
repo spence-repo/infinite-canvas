@@ -108,9 +108,9 @@ A configuration file will be created within **"~/.config/infinite-canvas/config.
  
  **Panning:** Hold ***SUPER + ALT*** and move your mouse to slide the entire desktop.
 
- **Zoom** Press/hold ***SUPER + SCROLL WHEEL UP/DOWN*** to zoom all windows in/out
+ **Zoom:** Press/hold ***SUPER + SCROLL WHEEL UP/DOWN*** to zoom all windows in/out
 
- **Reset** Press ***SUPER + BACKSPACE*** to reset camera position and zoom level.
+ **Reset:** Press ***SUPER + BACKSPACE*** to reset camera position and zoom level.
 
  ## Disclaimer
  I am by no means an experienced programmer. This was a fun learning project of mine as part of my ricing journey with Hyprland.
