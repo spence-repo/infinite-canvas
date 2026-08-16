@@ -63,12 +63,12 @@ Place all scripts (.py and .sh) inside ~/scripts/
    ```json
    {
     "workspace": null,
-    "monitor": null,
+    "monitor": "DP-1",
    }
    ```
    To find the correct monitor name, run:
    ```bash
-   hyrpctl monitors
+   hyprctl monitors
    ```
 
 ## Configuration
@@ -80,7 +80,7 @@ Place all scripts (.py and .sh) inside ~/scripts/
    end)
    ```
 **Configuration file**
-A configuration file will be created within **"~/.config/infinite-canvas/config.json"** when 'infinite_desktop_core.py' has started.
+A configuration file will be created within **"~/.config/infinite-canvas/config.json"** when 'infinite_desktop_core.py' once has started for the first time.
 
 ### Configuration options:
 
