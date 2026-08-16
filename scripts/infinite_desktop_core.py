@@ -108,9 +108,7 @@ def get_cursor_position():
 
     except Exception as e:
         print(f"Error getting cursor position: {e}", flush=True)
-        return mouse_x, mouse_y
-
-mouse_x, mouse_y = get_initial_mouse_position()
+        return None
 
 def read_inverted():
     try:
@@ -852,7 +850,7 @@ def mouse_reader_device(path):
     global acc_x, acc_y
     global btn_left, btn_right
     global mouse_rel_x, mouse_rel_y
-    global mouse_wheel, mouse_x, mouse_y
+    global mouse_wheel
 
     try:
         fd = open(path, 'rb')
@@ -921,17 +919,12 @@ def mouse_reader_device(path):
             with lock:
 
                 if code == REL_X:
-
                     mouse_rel_x += value
-                    mouse_x += value
 
                 elif code == REL_Y:
-
                     mouse_rel_y += value
-                    mouse_y += value
 
                 elif code == REL_WHEEL:
-
                     mouse_wheel += value
 
                 # -----------------------------------------
@@ -1128,7 +1121,12 @@ while True:
                     * ZOOM_MOMENTUM_STRENGTH
             )
 
-        cursor_x, cursor_y = get_cursor_position()
+        cursor = get_cursor_position()
+
+        if cursor is None:
+            continue
+
+        cursor_x, cursor_y = cursor
 
         # Applies wheel input.
         if wheel > 0:
@@ -1154,6 +1152,8 @@ while True:
                 ** abs(zoom_momentum)
         )
 
+        cursor_x, cursor_y = get_cursor_position()
+        
         if zoom_momentum > 0:
 
             canvas.zoom(
