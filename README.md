@@ -58,7 +58,7 @@ Place all scripts (.py and .sh) inside ~/scripts/
   chmod +x ~/scripts/infinite-desktop.sh ~/scripts/floating_tile_toggle.py ~/scripts/move_window_tiled.py ~/scripts/navigate_windows.py ~/scripts/resize_window.py
   ```
 4. **Set monitor:**
-   Infinite Canvas is monitor-specific and **MUST** be configured within the config file (see below). Failing to do so will result in error.
+   Infinite Canvas is monitor-specific and **MUST** be configured within the config file (see [Configuration](#configuration)). Failing to do so will result in error.
    
    ```json
    {
@@ -86,7 +86,7 @@ A configuration file will be created within **"~/.config/infinite-canvas/config.
 
 * **workspace** - By default, this is set to `null`, which applies Infinite Canvas to **all workspaces**. To make it workspace-specific, set the appropriate workspace number.
 
-* ***monitor** - By default, this is set to 'null' and **MUST** be configured or will result in error when running the script.
+* ***monitor** - By default, this is set to 'null' and **must be configured** or will result in error when running the script.
 
 * **pan.speed** - Controls how much the Canvas moves in response to mouse movement while panning. `1.0` is the default.
 
@@ -110,7 +110,7 @@ A configuration file will be created within **"~/.config/infinite-canvas/config.
 
  **Zoom** Press/hold **SUPER + SCROLL WHEEL UP/DOWN** to zoom all windows in/out
 
-  **Reset** Press **SUPER + BACKSPACE** to reset camera position and zoom level.
+ **Reset** Press **SUPER + BACKSPACE** to reset camera position and zoom level.
 
  ## Disclaimer
  I am by no means an experienced programmer. This was a fun learning project of mine as part of my ricing journey with Hyprland.
