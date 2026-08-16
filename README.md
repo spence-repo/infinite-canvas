@@ -7,7 +7,7 @@ https://github.com/user-attachments/assets/158917e4-6aa7-4ab7-806b-1a34b218dd14
 
 </video>
 
-**What's New?** 
+## What's New? 
 
 - Infinite canvas stores windows positions and sizes within its virtual coordinate system that are accurately translated from Hyprland coordinates, and translated back upon window transformations to maintain consistency.
 - A virtual camera is now used to display the correct position of the canvas to the screen.
